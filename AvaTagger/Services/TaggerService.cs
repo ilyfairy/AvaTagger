@@ -137,11 +137,11 @@ public class CaformerDbv4Inference : IDisposable
         using var configFileStream = new FileStream(configPath, FileMode.Open, FileAccess.Read, FileShare.Read);
         _timmConfig = JsonSerializer.Deserialize<TimmConfig>(configFileStream)!;
 
-        var sessionOptions = new SessionOptions();
-        sessionOptions.GraphOptimizationLevel = GraphOptimizationLevel.ORT_ENABLE_ALL;
-        sessionOptions.AppendExecutionProvider_DML(0);
+        //var sessionOptions = new SessionOptions();
+        //sessionOptions.GraphOptimizationLevel = GraphOptimizationLevel.ORT_ENABLE_ALL;
+        //sessionOptions.AppendExecutionProvider_DML(0);
         string modelPath = "model.onnx";
-        _session = new InferenceSession(modelPath, sessionOptions);
+        _session = new InferenceSession(modelPath);
 
         _initialized = true;
     }
